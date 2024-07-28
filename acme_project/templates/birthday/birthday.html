@@ -1,5 +1,11 @@
+<!-- templates/birthday/birthday.html -->
 {% extends "base.html" %}
 
 {% block content %}
-
+<hr>
+  <form>
+      {{ form.as_p }}
+    <input type="submit" value="Submit">
+  </form>
+<hr>
 {% endblock %}
