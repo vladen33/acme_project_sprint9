@@ -1,5 +1,5 @@
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.urls import reverse
 
 from .validators import real_age
 
@@ -22,14 +22,5 @@ class Birthday(models.Model):
             ),
         )
 
-#
-# class Contest(models.Model):
-#     title = models.CharField(verbose_name='Название', max_length=20)
-#     description = models.TextField(verbose_name='Описание')
-#     price = models.IntegerField(
-#         verbose_name='Цена',
-#         validators=[MinValueValidator(10), MaxValueValidator(100)],
-#         help_text='Рекомендованная розничная цена'
-#     )
-#
-#     comment = models.TextField(verbose_name='Комментарий', blank=True)
+    def get_absolute_url(self):
+        return reverse('birthday:detail', kwargs={'pk': self.pk})
